@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Surface Area/Volume Calculator</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<body>
+
+  <div class="jumbotron text-center">
+    <h1><b>Computer Engineering Technology - Web Programming</b></h1>
+    <div class="col-sm-5 offset-sm-7">
+            <nav class="navbar bg-light">
+        <ul class="nav flex-column">
+          <table>
+            <td>
+              <a class="nav-link" href="http://abhishekg.sgedu.site/assignment01/index.html">Index</a>
+              <a class="nav-link" href="http://abhishekg.sgedu.site/assignment01/Factorial.html">Factorial
+                Calculator</a>
+            </td>
+            <li class="nav-item">
+              <td>
+                <a class="nav-link" href="http://abhishekg.sgedu.site/assignment01/Cylinder.html">Surface
+                  Area/Volume Calculator</a>
+                <a class="nav-link" href="http://abhishekg.sgedu.site/assignment01/Prime.html">Prime Calculator</a>
+              </td>
+          </table>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="col-md-12">
+      <div ng-app="myApp" ng-controller="myCtrl">
+        <h3>This Program calculates the Surface Area and Volume of a Cylinder.</h3>
+        <h4>Please enter the radius and height of cylinder.</h4>
+        <label>Radius of cylinder <input radius="Radius" ng-model="radius" 
+          ng-change="updateAreaCyl();updateVolumeCyl()"
+            type="number" min="1" required /></label><br />
+        <label>Length of Cylinder <input length="Length" ng-model="length" 
+          ng-change="updateAreaCyl();updateVolumeCyl()"
+            type="number" min="1" required /></label><br />
+        <hr />
+        Surface Area Of the Cylinder: {{Area}}<br><br>
+        Volume Of the Cylinder: {{Volume}}
+
+
+      </div>
+
+      <script>
+        var app = angular.module('myApp', []);
+
+        app.controller('myCtrl', function ($scope, $window) {
+          $scope.radius = 1;
+          $scope.length = 1;
+          $scope.updateAreaCyl = function () {
+          $scope.Area = ($window.Math.round(((2 * 3.14 * $scope.radius * $scope.radius) + (2 * 3.14 * $scope.radius * $scope.length))*100)/100);
+          };
+          $scope.updateVolumeCyl = function () {
+          $scope.Volume = ($window.Math.round(3.14 * $scope.radius * $scope.radius * $scope.length*100)/100);
+          };
+
+        });
+      </script>
+
+    </div>
+  </div>
+  </div>
+
+  <div class="jumbotron text-center" style="margin-bottom:0">
+    <p>040815133</p>
+    <p>Abhishek</p>
+    <p>Goara</p>
+  </div>
+
+</body>
+
+</html>
